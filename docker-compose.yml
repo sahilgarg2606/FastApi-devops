@@ -1,6 +1,6 @@
 services:
   app:
-    build: .
+    image: ${DOCKERHUB_USER}/fastapi:${DOCKERHUB_TAG}
     container_name: fastapi-app
     ports:
       - "8000:8000"
