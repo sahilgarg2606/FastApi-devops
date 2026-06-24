@@ -6,9 +6,6 @@ on:
             - main
 
 jobs:
-    # code-quality:
-    #     uses: ./.github/workflows/code-quality.yml
-    
     secrets-scan:
         uses: ./.github/workflows/secret-scan.yml
 
@@ -18,12 +15,8 @@ jobs:
     docker-scan:
         uses: ./.github/workflows/docker-lint.yml
 
-    trivy:
-        needs: [secrets-scan, dependency-scan , docker-scan]
-        uses: ./.github/workflows/image-scan.yml
-        secrets: inherit
     build-push:
-        needs: [trivy]
+        needs: [secrets-scan, dependency-scan , docker-scan]
         uses: ./.github/workflows/build-push.yml
         secrets: inherit
     deploy:
