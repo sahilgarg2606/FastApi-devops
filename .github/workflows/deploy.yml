@@ -23,6 +23,9 @@ jobs:
                   sudo apt update && sudo apt install docker.io docker-compose-v2 -y
                   sudo usermod -aG docker $USER  && newgrp docker
                   mkdir -p devOps
+                   mkdir -p ~/devops/nginx
+                   sudo chown -R $USER:$USER ~/devops
+                   chmod -R 755 ~/devops
                   if [ -d ~/devops/nginx/default.conf ]; then
                     sudo rm -rf ~/devops/nginx/default.conf
                   fi
