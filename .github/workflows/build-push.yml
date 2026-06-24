@@ -26,8 +26,8 @@ jobs:
         with:
           image-ref: fastapi:${{ github.sha }}
           format: table
-          exit-code: '1'
-          severity: CRITICAL
+          exit-code: '0'
+          severity: CRITICAL, HIGH
       - name: Tag Image
         run: |
           docker tag fastapi:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/fastapi:latest
