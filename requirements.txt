@@ -5,7 +5,6 @@ psycopg2-binary
 redis
 python-dotenv
 pydantic
-
 flake8
 bandit
 pytest
